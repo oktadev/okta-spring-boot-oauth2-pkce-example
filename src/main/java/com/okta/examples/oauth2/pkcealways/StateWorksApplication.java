@@ -1,4 +1,4 @@
-package com.okta.examples.oauth2.stateworks;
+package com.okta.examples.oauth2.pkcealways;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

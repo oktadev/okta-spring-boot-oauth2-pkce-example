@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.okta.examples.oauth2</groupId>
-	<artifactId>state-works</artifactId>
+	<artifactId>pkce-always</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>state-works</name>
-	<description>Spring Boot + Spring Security + OAuth2 with overridden state</description>
+	<name>pkce-always</name>
+	<description>Spring Boot + Spring Security + OAuth2 that uses pkce for confidential clients</description>
 
 	<properties>
 		<java.version>11</java.version>

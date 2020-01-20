@@ -1,10 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>profile</h1>
-</body>
+    <head>
+        <!--/*/ <th:block th:include="fragments/fragments :: header"/> /*/-->
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm"></div>
+                <div class="col-lg">
+                    <img src="/img/okta-dev-logo.png">
+                </div>
+                <div class="col-sm"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm"></div>
+                <div class="col-lg">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Key</th>
+                                <th scope="col">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="claim : ${user.userInfo.claims}">
+                                <td th:text="${claim.key}">key</td>
+                                <td th:text="${claim.value}">value</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm"></div>
+                <div class="col-lg text-center">
+                    <a class="btn btn-primary" href="/">Home</a>
+                </div>
+                <div class="col-sm"></div>
+            </div>
+        </div>
+        <!--/*/ <th:block th:include="fragments/fragments :: footer"/> /*/-->
+    </body>
 </html>

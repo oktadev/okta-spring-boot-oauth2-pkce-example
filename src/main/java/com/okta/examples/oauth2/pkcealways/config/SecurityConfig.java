@@ -2,6 +2,7 @@ package com.okta.examples.oauth2.pkcealways.config;
 
 import com.okta.examples.oauth2.pkcealways.custom.CustomAuthorizationRequestResolver;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
@@ -12,9 +13,11 @@ import static org.springframework.security.oauth2.client.web.OAuth2Authorization
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private ClientRegistrationRepository clientRegistrationRepository;
+    private Environment env;
 
-    public SecurityConfig(ClientRegistrationRepository clientRegistrationRepository) {
+    public SecurityConfig(ClientRegistrationRepository clientRegistrationRepository, Environment env) {
         this.clientRegistrationRepository = clientRegistrationRepository;
+        this.env = env;
     }
 
     @Override
@@ -26,11 +29,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .anyRequest()
             .fullyAuthenticated();
 
-        http
-            .oauth2Login()
-            .authorizationEndpoint()
-            .authorizationRequestResolver(new CustomAuthorizationRequestResolver(
-                clientRegistrationRepository, DEFAULT_AUTHORIZATION_REQUEST_BASE_URI
-            ));
+        if (Boolean.valueOf(env.getProperty("okta.oauth2.pkce-always"))) {
+            http
+                .oauth2Login()
+                .authorizationEndpoint()
+                .authorizationRequestResolver(new CustomAuthorizationRequestResolver(
+                    clientRegistrationRepository, DEFAULT_AUTHORIZATION_REQUEST_BASE_URI
+                ));
+        }
     }
 }

@@ -16,7 +16,7 @@
   "env": {
     "OKTA_OAUTH2_PKCE_ALWAYS": {
       "description": "Should PKCE be used with the app?",
-      "value": true
+      "value": "true"
     },
     "LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB_CLIENT": {
       "description": "set DEBUG for RestTemplate logging to see PKCE in action",

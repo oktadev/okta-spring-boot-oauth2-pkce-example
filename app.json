@@ -1,0 +1,26 @@
+{
+  "name": "PKCE Always with Spring Boot, OIDC & Okta",
+  "description": "This app demonstrates integrating a simple Spring Boot / Spring Security app with Okta using OIDC. An Okta org is provisioned. Look at the app environment variables for login info.",
+  "repository": "https://github.com/oktadeveloper/okta-spring-boot-oauth2-pkce-example/tree/master",
+  "keywords": [
+    "oidc",
+    "oauth2",
+    "identity",
+    "security",
+    "authentication"
+  ],
+  "success_url": "/",
+  "addons": [
+    "okta"
+  ],
+  "env": {
+    "OKTA_OAUTH2_PKCE_ALWAYS": {
+      "description": "Should PKCE be used with the app?",
+      "value": true
+    },
+    "LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB_CLIENT": {
+      "description": "set DEBUG for RestTemplate logging to see PKCE in action",
+      "value": "DEBUG"
+    }
+  }
+}

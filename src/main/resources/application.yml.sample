@@ -3,7 +3,7 @@ okta:
     issuer: https://your-okta-org.okta.com/oauth2/default
     client-id: your-client-id
     client-secret: your-client-secret
-    pkce-always: true
+    pkce-always: false
 logging:
   level:
     org:
